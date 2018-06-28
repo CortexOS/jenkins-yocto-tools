@@ -14,7 +14,7 @@
 #-------------------------------------------------------------------------------
 # Constants
 #-------------------------------------------------------------------------------
-sstate_dir="sstate-mirror:/bonus/scratch/sstate-mirror"
+#sstate_dir="sstate-mirror:/bonus/scratch/sstate-mirror"
 
 lockfile=$(mktemp $WORKSPACE/lock-XXXX)
 echo $$ > $lockfile
@@ -126,10 +126,6 @@ export LOGFILE=$ARTIFACTS/build-output.log
 
 # Jenkins builds do not have an ssh-agent.  Start one
 eval `ssh-agent`
-
-if [ -d poky/build ]; then
-	echo "NOTE: reused existing workspace!"
-fi
 
 ${WORKSPACE}/jenkins-yocto-tools/yocto-build -c -t "$TARGET" -i $sstate_dir $autorev > $LOGFILE &
 
