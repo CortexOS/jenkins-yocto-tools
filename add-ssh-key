@@ -1,24 +1,23 @@
 #!/bin/bash
 
-HostName=$1
-UserName=$2
-KeyFile=$3
+export HostName=$1
+export UserName=$2
+export KeyFile=$3
 
-if -e ~/.ssh/config; then
+if [ -e ~/.ssh/config ]; then
 
-	removeText="*Host ${HostName}
-	*User ${UserName}
-	*Hostname ${HostName}
+	removeText="*Host $HostName
+	*User $UserName
+	*Hostname $HostName
 	*IdentityFile*"
 
 	sed 's/${removeText}//' ~/.ssh/config > ~/.ssh/config
 
 fi
 
-
-cat >> ~/.ssh/config << 'EOF'
-Host ${HostName}
-	User ${UserName}
-	Hostname ${HostName}
-	IdentityFile ${KeyFile}
+cat >> ~/.ssh/config <<EOF
+Host $HostName
+	User $UserName
+	Hostname $HostName
+	IdentityFile $KeyFile
 EOF
