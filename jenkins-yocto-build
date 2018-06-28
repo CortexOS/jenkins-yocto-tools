@@ -14,7 +14,7 @@
 #-------------------------------------------------------------------------------
 # Constants
 #-------------------------------------------------------------------------------
-#sstate_dir="sstate-mirror:/bonus/scratch/sstate-mirror"
+sstate_dir="sstate-mirror:/bonus/scratch/sstate-mirror"
 
 lockfile=$(mktemp $WORKSPACE/lock-XXXX)
 echo $$ > $lockfile
