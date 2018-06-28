@@ -89,7 +89,7 @@ fi
 
 build_bundle_dir=$(readlink -f $build_bundle_dir)
 
-init_build_env=${build_bundle_dir}/oe-init-build-env
+init_build_env=${build_bundle_dir}/yocto/oe-init-build-env
 
 if [ ! -f $init_build_env ]
 then
@@ -101,7 +101,7 @@ cd $build_bundle_dir
 
 if [ -z "$build_workspace_dir" ]
 then
-    build_workspace_dir="poky/build"
+    build_workspace_dir="yocto/build"
 fi
 
 build_workspace_dir=$(readlink -f $build_workspace_dir)
