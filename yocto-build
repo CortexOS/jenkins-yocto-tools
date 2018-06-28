@@ -89,7 +89,7 @@ fi
 
 build_bundle_dir=$(readlink -f $build_bundle_dir)
 
-init_build_env=${build_bundle_dir}/poky/oe-init-build-env
+init_build_env=${build_bundle_dir}/oe-init-build-env
 
 if [ ! -f $init_build_env ]
 then
