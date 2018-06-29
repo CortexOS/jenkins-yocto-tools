@@ -142,10 +142,7 @@ ${WORKSPACE}/jenkins-yocto-tools/yocto-build -c -t "$TARGET" -i $sstate_dir $aut
 # will be shown after the build.
 BUILD_PID="$!"
 (
-	while true; do
-		tail -n 1 $LOGFILE
-		sleep 10
-	done
+	tail -F -s10 $LOGFILE
 ) &
 TAIL_PID="$!"
 wait $BUILD_PID
